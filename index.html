@@ -3,240 +3,493 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AMDA-Nepal provides healthcare services and community programs to underserved communities in Nepal with compassion and excellence since 1989.">
     <title>AMDA-Nepal | Better Quality of Life for Better Future</title>
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb', // blue-600
+                        secondary: '#059669', // emerald-600
+                        dark: '#1f2937', // gray-800
+                        light: '#f3f4f6' // gray-100
+                    },
+                    animation: {
+                        'count-up': 'count-up 1s ease-out forwards'
+                    },
+                    keyframes: {
+                        'count-up': {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
+        /* Custom styles */
+        .hero-overlay {
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .mega-menu {
+            transition: all 0.3s ease;
+            transform-origin: top center;
+            transform: scaleY(0);
+            opacity: 0;
+            max-height: 0;
+        }
+        .mega-menu.active {
+            transform: scaleY(1);
+            opacity: 1;
+            max-height: 500px;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .hamburger {
+            transition: all 0.3s ease;
+        }
+        .hamburger.active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .mobile-menu.active {
+            max-height: 1000px;
         }
     </style>
 </head>
-<body class="bg-white text-gray-800">
+<body class="bg-white text-gray-800 font-sans">
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 w-full bg-white shadow-md z-50 px-4 py-3 flex justify-between items-center">
         <div class="flex items-center space-x-4">
-            <h1 class="text-xl font-bold text-blue-600">AMDA-NEPAL</h1>
+            <a href="#" class="text-xl font-bold text-primary">AMDA-NEPAL</a>
         </div>
-        <div class="hidden md:flex space-x-6">
-            <a href="#" class="text-gray-700 hover:text-blue-600">Home</a>
-            <a href="#" class="text-gray-700 hover:text-blue-600">About Us</a>
-            <a href="#" class="text-gray-700 hover:text-blue-600">What We Do</a>
-            <a href="#" class="text-gray-700 hover:text-blue-600">Resources</a>
-            <a href="#" class="text-gray-700 hover:text-blue-600">Publications</a>
-            <a href="#" class="text-gray-700 hover:text-blue-600">Gallery</a>
+        
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex space-x-6 items-center">
+            <a href="#" class="text-gray-700 hover:text-primary transition-colors">Home</a>
+            <a href="#" class="text-gray-700 hover:text-primary transition-colors">About Us</a>
+            
+            <!-- Mega Menu Container -->
+            <div class="relative group">
+                <button class="text-gray-700 hover:text-primary flex items-center focus:outline-none transition-colors">
+                    What We Do
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                
+                <!-- Mega Menu Dropdown -->
+                <div class="absolute left-0 mt-2 w-[600px] bg-white shadow-xl rounded-lg z-50 mega-menu">
+                    <div class="grid grid-cols-3 gap-6 p-6">
+                        <!-- Column 1 -->
+                        <div>
+                            <h3 class="font-semibold text-dark mb-3 flex items-center">
+                                <i class="fas fa-hospital mr-2 text-primary"></i> Health Services
+                            </h3>
+                            <ul class="space-y-3">
+                                <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fas fa-medkit mr-2 text-secondary"></i> Medical Camps</a></li>
+                                <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fas fa-clinic-medical mr-2 text-secondary"></i> Hospitals</a></li>
+                                <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fas fa-graduation-cap mr-2 text-secondary"></i> Training</a></li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Column 2 -->
+                        <div>
+                            <h3 class="font-semibold text-dark mb-3 flex items-center">
+                                <i class="fas fa-hands-helping mr-2 text-primary"></i> Community Programs
+                            </h3>
+                            <ul class="space-y-3">
+                                <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fas fa-book-open mr-2 text-secondary"></i> Education</a></li>
+                                <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fas fa-ambulance mr-2 text-secondary"></i> Disaster Relief</a></li>
+                                <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fas fa-people-carry mr-2 text-secondary"></i> Outreach</a></li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Column 3 -->
+                        <div>
+                            <h3 class="font-semibold text-dark mb-3 flex items-center">
+                                <i class="fas fa-hand-holding-heart mr-2 text-primary"></i> Support
+                            </h3>
+                            <ul class="space-y-3">
+                                <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fas fa-hands mr-2 text-secondary"></i> Volunteering</a></li>
+                                <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fas fa-handshake mr-2 text-secondary"></i> Partnerships</a></li>
+                                <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fas fa-donate mr-2 text-secondary"></i> Donations</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="#" class="text-gray-700 hover:text-primary transition-colors">Resources</a>
+            <a href="#" class="text-gray-700 hover:text-primary transition-colors">Publications</a>
+            <a href="#" class="text-gray-700 hover:text-primary transition-colors">Gallery</a>
         </div>
-        <div class="flex items-center space-x-4">
-            <a href="#" class="text-gray-700 hover:text-blue-600">Log In</a>
-            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Donate Now</button>
+        
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden flex items-center space-x-4">
+            <a href="#" class="text-gray-700 hover:text-primary">Log In</a>
+            <button id="mobile-menu-button" class="hamburger focus:outline-none">
+                <div class="hamburger-line w-6 h-0.5 bg-gray-700 my-1 transition-all"></div>
+                <div class="hamburger-line w-6 h-0.5 bg-gray-700 my-1 transition-all"></div>
+                <div class="hamburger-line w-6 h-0.5 bg-gray-700 my-1 transition-all"></div>
+            </button>
+        </div>
+        
+        <!-- Desktop Auth Buttons -->
+        <div class="hidden md:flex items-center space-x-4">
+            <a href="#" class="text-gray-700 hover:text-primary transition-colors">Log In</a>
+            <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">Donate Now</button>
         </div>
     </nav>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu fixed top-16 left-0 w-full bg-white shadow-lg z-40 md:hidden">
+        <div class="px-4 py-3 space-y-4">
+            <a href="#" class="block py-2 text-gray-700 hover:text-primary transition-colors">Home</a>
+            <a href="#" class="block py-2 text-gray-700 hover:text-primary transition-colors">About Us</a>
+            
+            <!-- Mobile Mega Menu Trigger -->
+            <div class="relative">
+                <button id="mobile-mega-menu-button" class="w-full flex justify-between items-center py-2 text-gray-700 hover:text-primary transition-colors focus:outline-none">
+                    <span>What We Do</span>
+                    <svg class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                
+                <!-- Mobile Mega Menu Content -->
+                <div id="mobile-mega-menu" class="pl-4 overflow-hidden max-h-0 transition-all duration-300">
+                    <div class="py-2 space-y-3">
+                        <h3 class="font-semibold text-dark mb-2 flex items-center">
+                            <i class="fas fa-hospital mr-2 text-primary text-sm"></i> Health Services
+                        </h3>
+                        <ul class="space-y-2 pl-4">
+                            <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fas fa-medkit mr-2 text-secondary text-xs"></i> Medical Camps</a></li>
+                            <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fas fa-clinic-medical mr-2 text-secondary text-xs"></i> Hospitals</a></li>
+                            <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fas fa-graduation-cap mr-2 text-secondary text-xs"></i> Training</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="py-2 space-y-3">
+                        <h3 class="font-semibold text-dark mb-2 flex items-center">
+                            <i class="fas fa-hands-helping mr-2 text-primary text-sm"></i> Community Programs
+                        </h3>
+                        <ul class="space-y-2 pl-4">
+                            <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fas fa-book-open mr-2 text-secondary text-xs"></i> Education</a></li>
+                            <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fas fa-ambulance mr-2 text-secondary text-xs"></i> Disaster Relief</a></li>
+                            <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fas fa-people-carry mr-2 text-secondary text-xs"></i> Outreach</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="py-2 space-y-3">
+                        <h3 class="font-semibold text-dark mb-2 flex items-center">
+                            <i class="fas fa-hand-holding-heart mr-2 text-primary text-sm"></i> Support
+                        </h3>
+                        <ul class="space-y-2 pl-4">
+                            <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fas fa-hands mr-2 text-secondary text-xs"></i> Volunteering</a></li>
+                            <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fas fa-handshake mr-2 text-secondary text-xs"></i> Partnerships</a></li>
+                            <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fas fa-donate mr-2 text-secondary text-xs"></i> Donations</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="#" class="block py-2 text-gray-700 hover:text-primary transition-colors">Resources</a>
+            <a href="#" class="block py-2 text-gray-700 hover:text-primary transition-colors">Publications</a>
+            <a href="#" class="block py-2 text-gray-700 hover:text-primary transition-colors">Gallery</a>
+            <button class="w-full bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">Donate Now</button>
+        </div>
+    </div>
 
     <!-- Hero Section -->
-    <header class=""> 
-         <div class="bg-white rounded-xl shadow-lg p-6 relative">
-        <img src="https://www.amda.org.np/files/pics/25th%20Anniversary%20of%20SCWH.jpg" alt="Healthcare Professional" class="rounded-lg mb-4 ">
-    </div>
-    <div class="container mx-auto grid md:grid-cols-2 gap-8 items-center mt-10">
-        <div class="space-y-6">
-            <h2 class="text-4xl font-bold text-gray-900 leading-tight">
-                Better Quality of Life for Better Future
-            </h2>
-            <p class="text-gray-600">
-                Providing healthcare services to underserved communities with compassion and excellence since 1989
-            </p>
-            <div class="flex space-x-4">
-                <button class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">Our Services</button>
-                <button class="border border-blue-600 text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-50">Learn More</button>
+    <header class="pt-20">
+        <div class="relative">
+            <img src="https://www.amda.org.np/files/pics/25th%20Anniversary%20of%20SCWH.jpg" 
+                 alt="AMDA-Nepal team celebrating 25th anniversary with community members" 
+                 class="w-full h-[500px] object-cover"
+                 loading="eager">
+            <div class="absolute inset-0 hero-overlay flex items-center">
+                <div class="container mx-auto px-4 md:px-16">
+                    <div class="max-w-2xl">
+                        <h1 class="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
+                            Better Quality of Life for Better Future
+                        </h1>
+                        <p class="text-xl text-gray-100 mb-8">
+                            Providing healthcare services to underserved communities with compassion and excellence since 1989
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                            <button class="bg-primary text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50">
+                                Our Services
+                            </button>
+                            <button class="border-2 border-white text-white px-8 py-3 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="flex space-x-8 pt-6">
-                <div>
-                    <h3 class="text-3xl font-bold text-blue-600">30+</h3>
-                    <p class="text-gray-600">Years Experience</p>
+            <div class="absolute bottom-4 left-4 bg-black bg-opacity-50 text-white px-3 py-1 rounded text-sm">
+                Celebrating 25 Years of Service
+            </div>
+        </div>
+        
+        <div class="container mx-auto px-4 md:px-16 py-12 relative top-10">
+            <div class="bg-white shadow-xl rounded-xl p-8 grid md:grid-cols-3 gap-8 -mt-16 relative z-10">
+                <div class="text-center animate-count-up">
+                    <div class="flex justify-center mb-3">
+                        <i class="fas fa-calendar-alt text-4xl text-primary"></i>
+                    </div>
+                    <h3 class="text-4xl font-bold text-primary mb-2 count" data-target="30">0+</h3>
+                    <p class="text-gray-600 font-medium">Years Experience</p>
                 </div>
-                <div>
-                    <h3 class="text-3xl font-bold text-blue-600">100k+</h3>
-                    <p class="text-gray-600">Patients Healed</p>
+                <div class="text-center animate-count-up">
+                    <div class="flex justify-center mb-3">
+                        <i class="fas fa-user-injured text-4xl text-primary"></i>
+                    </div>
+                    <h3 class="text-4xl font-bold text-primary mb-2 count" data-target="100">0k+</h3>
+                    <p class="text-gray-600 font-medium">Patients Helped</p>
                 </div>
-                <div>
-                    <h3 class="text-3xl font-bold text-blue-600">50+</h3>
-                    <p class="text-gray-600">Medical Programs</p>
+                <div class="text-center animate-count-up">
+                    <div class="flex justify-center mb-3">
+                        <i class="fas fa-medkit text-4xl text-primary"></i>
+                    </div>
+                    <h3 class="text-4xl font-bold text-primary mb-2 count" data-target="50">0+</h3>
+                    <p class="text-gray-600 font-medium">Medical Camps</p>
                 </div>
             </div>
         </div>
-        <div>
-          
-        </div>
-    </div>
-       
     </header>
 
     <!-- What We Do Section -->
-    <section class="py-16 px-4 md:px-16 bg-white">
+    <section class="py-16 px-4  md:px-16 bg-white">
         <div class="container mx-auto text-center mb-12">
-            <h3 class="text-3xl font-bold text-gray-900">What We Do</h3>
-            <p class="text-gray-600 mt-4">
+            <h2 class="text-3xl font-bold text-dark mb-4">What We Do</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto text-lg">
                 Our comprehensive range of services aimed at improving healthcare accessibility and quality in underserved communities.
             </p>
         </div>
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-blue-50 p-6 rounded-xl text-center hover:shadow-xl transition-all">
-                <div class="flex justify-center mb-4">
-                    <svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-                    </svg>
+        <div class="container mx-auto grid md:grid-cols-3 gap-8">
+            <!-- Card 1 -->
+            <div class=" p-8 rounded-xl text-center bg-blue-300 card-hover transition-all duration-300">
+                <div class="flex justify-center mb-6">
+                    <div class="bg-primary bg-opacity-10 p-4 rounded-full">
+                        <i class="fas fa-hospital text-3xl text-primary"></i>
+                    </div>
                 </div>
-                <h4 class="text-xl font-semibold mb-4">Hospitals & Clinics</h4>
-                <p class="text-gray-600">
+                <h3 class="text-xl font-semibold text-dark mb-4">Hospitals & Clinics</h3>
+                <p class="text-gray-600 mb-6">
                     Access to quality healthcare services through our network of hospitals and clinics across the region.
                 </p>
-                <a href="#" class="text-blue-600 mt-4 inline-block hover:underline">Learn more →</a>
+                <a href="#" class="inline-flex items-center text-primary font-medium hover:text-blue-700 transition-colors">
+                    Learn more <i class="fas fa-arrow-right ml-2"></i>
+                </a>
             </div>
-            <div class="bg-blue-50 p-6 rounded-xl text-center hover:shadow-xl transition-all">
-                <div class="flex justify-center mb-4">
-                    <svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                    </svg>
+            
+            <!-- Card 2 -->
+            <div class="bg-blue-300 p-8 rounded-xl text-center card-hover transition-all duration-300">
+                <div class="flex justify-center mb-6">
+                    <div class="bg-primary bg-opacity-10 p-4 rounded-full">
+                        <i class="fas fa-graduation-cap text-3xl text-primary"></i>
+                    </div>
                 </div>
-                <h4 class="text-xl font-semibold mb-4">Academic Programs</h4>
-                <p class="text-gray-600">
+                <h3 class="text-xl font-semibold text-dark mb-4">Academic Programs</h3>
+                <p class="text-gray-600 mb-6">
                     Education and training programs for healthcare professionals to enhance their skills and knowledge.
                 </p>
-                <a href="#" class="text-blue-600 mt-4 inline-block hover:underline">Learn more →</a>
+                <a href="#" class="inline-flex items-center text-primary font-medium hover:text-blue-700 transition-colors">
+                    Learn more <i class="fas fa-arrow-right ml-2"></i>
+                </a>
             </div>
-            <div class="bg-blue-50 p-6 rounded-xl text-center hover:shadow-xl transition-all">
-                <div class="flex justify-center mb-4">
-                    <svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                    </svg>
+            
+            <!-- Card 3 -->
+            <div class="bg-blue-300 p-8 rounded-xl text-center card-hover transition-all duration-300">
+                <div class="flex justify-center mb-6">
+                    <div class="bg-primary bg-opacity-10 p-4 rounded-full">
+                        <i class="fas fa-handshake text-3xl text-primary"></i>
+                    </div>
                 </div>
-                <h4 class="text-xl font-semibold mb-4">Partnerships & Collaboration</h4>
-                <p class="text-gray-600">
+                <h3 class="text-xl font-semibold text-dark mb-4">Partnerships & Collaboration</h3>
+                <p class="text-gray-600 mb-6">
                     Working with local and international organizations to expand our reach and impact.
                 </p>
-                <a href="#" class="text-blue-600 mt-4 inline-block hover:underline">Learn more →</a>
+                <a href="#" class="inline-flex items-center text-primary font-medium hover:text-blue-700 transition-colors">
+                    Learn more <i class="fas fa-arrow-right ml-2"></i>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Additional Services -->
-    <section class="py-16 px-4 md:px-16 bg-blue-50">
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-white p-6 rounded-xl text-center hover:shadow-xl transition-all">
-                <div class="flex justify-center mb-4">
-                    <svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
+    <section class="py-16 px-4 md:px-16 bg-gray-50">
+        <div class="container mx-auto grid md:grid-cols-3 gap-8">
+            <!-- Card 1 -->
+            <div class="bg-blue-300 p-8 rounded-xl text-center card-hover transition-all duration-300">
+                <div class="flex justify-center mb-6">
+                    <div class="bg-primary bg-opacity-10 p-4 rounded-full">
+                        <i class="fas fa-file-signature text-3xl text-primary"></i>
+                    </div>
                 </div>
-                <h4 class="text-xl font-semibold mb-4">Citizen Charter</h4>
-                <p class="text-gray-600">
+                <h3 class="text-xl font-semibold text-dark mb-4">Citizen Charter</h3>
+                <p class="text-gray-600 mb-6">
                     Commitment to transparency and accountability in our service delivery to the community.
                 </p>
-                <a href="#" class="text-blue-600 mt-4 inline-block hover:underline">Learn more →</a>
+                <a href="#" class="inline-flex items-center text-primary font-medium hover:text-blue-700 transition-colors">
+                    Learn more <i class="fas fa-arrow-right ml-2"></i>
+                </a>
             </div>
-            <div class="bg-white p-6 rounded-xl text-center hover:shadow-xl transition-all">
-                <div class="flex justify-center mb-4">
-                    <svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
+            
+            <!-- Card 2 -->
+            <div class="bg-blue-300 p-8 rounded-xl text-center card-hover transition-all duration-300">
+                <div class="flex justify-center mb-6">
+                    <div class="bg-primary bg-opacity-10 p-4 rounded-full">
+                        <i class="fas fa-ambulance text-3xl text-primary"></i>
+                    </div>
                 </div>
-                <h4 class="text-xl font-semibold mb-4">Emergency Relief</h4>
-                <p class="text-gray-600">
+                <h3 class="text-xl font-semibold text-dark mb-4">Emergency Relief</h3>
+                <p class="text-gray-600 mb-6">
                     Rapid response to disasters and emergencies, providing critical healthcare support when needed.
                 </p>
-                <a href="#" class="text-blue-600 mt-4 inline-block hover:underline">Learn more →</a>
+                <a href="#" class="inline-flex items-center text-primary font-medium hover:text-blue-700 transition-colors">
+                    Learn more <i class="fas fa-arrow-right ml-2"></i>
+                </a>
             </div>
-            <div class="bg-white p-6 rounded-xl text-center hover:shadow-xl transition-all">
-                <div class="flex justify-center mb-4">
-                    <svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 3.75h3"></path>
-                    </svg>
+            
+            <!-- Card 3 -->
+            <div class="bg-blue-300 p-8 rounded-xl text-center card-hover transition-all duration-300">
+                <div class="flex justify-center mb-6">
+                    <div class="bg-primary bg-opacity-10 p-4 rounded-full">
+                        <i class="fas fa-users text-3xl text-primary"></i>
+                    </div>
                 </div>
-                <h4 class="text-xl font-semibold mb-4">Social Responsibility</h4>
-                <p class="text-gray-600">
+                <h3 class="text-xl font-semibold text-dark mb-4">Social Responsibility</h3>
+                <p class="text-gray-600 mb-6">
                     Initiatives focused on community well-being, preventive healthcare, and social determinants of health.
                 </p>
-                <a href="#" class="text-blue-600 mt-4 inline-block hover:underline">Learn more →</a>
+                <a href="#" class="inline-flex items-center text-primary font-medium hover:text-blue-700 transition-colors">
+                    Learn more <i class="fas fa-arrow-right ml-2"></i>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
     <section class="py-16 px-4 md:px-16 bg-white">
-        <div class="container mx-auto grid md:grid-cols-2 gap-8 items-center">
-            <div>
-                <img src="https://www.amda.org.np/files/pics/25th%20Anniversary%20of%20SCWH.jpg" alt="AMDA-Nepal Team" class="rounded-xl shadow-lg">
-            </div>
-            <div>
-                <h3 class="text-3xl font-bold text-gray-900 mb-6">Dedicated to Healthcare Excellence since 1989</h3>
-                <p class="text-gray-600 mb-4">
-                    Association of Medical Doctors of Asia-Nepal (AMDA-Nepal) was established in 1989 as a chapter of AMDA-International. Legally registered in the government office as an NGO in March 4, 1991, it is a humanitarian, non-profit making, non-political organization.
+        <div class="container mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="order-2 md:order-1">
+                <h2 class="text-3xl font-bold text-dark mb-6">Dedicated to Healthcare Excellence since 1989</h2>
+                <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+                    Association of Medical Doctors of Asia-Nepal (AMDA-Nepal) was established in 1989 as a chapter of AMDA-International. Legally registered in the government office as an NGO in March 4, 1991, it is a humanitarian, non-profit making, non-political organization committed to providing quality healthcare services to underserved communities.
                 </p>
-                <div class="grid md:grid-cols-3 gap-4 mt-8">
-                    <div>
-                        <h4 class="text-2xl font-bold text-blue-600">1989</h4>
-                        <p class="text-gray-600">Founded</p>
+                <div class="grid grid-cols-3 gap-4 mt-8">
+                    <div class="bg-light p-4 rounded-lg text-center">
+                        <div class="flex justify-center mb-2">
+                            <i class="fas fa-calendar-day text-2xl text-primary"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-primary">1989</h4>
+                        <p class="text-gray-600 text-sm">Founded</p>
                     </div>
-                    <div>
-                        <h4 class="text-2xl font-bold text-blue-600">15+</h4>
-                        <p class="text-gray-600">Healthcare Facilities</p>
+                    <div class="bg-light p-4 rounded-lg text-center">
+                        <div class="flex justify-center mb-2">
+                            <i class="fas fa-clinic-medical text-2xl text-primary"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-primary">15+</h4>
+                        <p class="text-gray-600 text-sm">Health Facilities</p>
                     </div>
-                    <div>
-                        <h4 class="text-2xl font-bold text-blue-600">150+</h4>
-                        <p class="text-gray-600">Team Members</p>
+                    <div class="bg-light p-4 rounded-lg text-center">
+                        <div class="flex justify-center mb-2">
+                            <i class="fas fa-user-md text-2xl text-primary"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-primary">150+</h4>
+                        <p class="text-gray-600 text-sm">Team Members</p>
                     </div>
+                </div>
+            </div>
+            <div class="order-1 md:order-2">
+                <img src="https://www.amda.org.np/files/pics/medical%20camp.jpg" 
+                     alt="AMDA-Nepal medical camp in rural community" 
+                     class="rounded-xl shadow-lg w-full h-auto object-cover"
+                     loading="lazy">
+                <div class="mt-4 text-sm text-gray-500 text-center">
+                    AMDA-Nepal medical team providing care at a rural health camp
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Newsletter Section -->
-    <section class="py-16 px-4 md:px-16 bg-blue-50">
-        <div class="container mx-auto grid md:grid-cols-2 gap-8 items-center">
+    <section class="py-16 px-4 md:px-16 bg-primary text-white">
+        <div class="container mx-auto grid md:grid-cols-2 gap-12 items-center">
             <div>
-                <h3 class="text-3xl font-bold text-gray-900 mb-4">Stay updated with our latest news</h3>
-                <p class="text-gray-600 mb-6">
+                <h2 class="text-3xl font-bold mb-6">Stay updated with our latest news</h2>
+                <p class="text-blue-100 mb-8 text-lg">
                     By subscribing to our mailing list you will always be updated with the latest news from us.
                 </p>
-                <div class="flex">
-                    <input 
-                        type="email" 
-                        placeholder="Enter your email" 
-                        class="flex-grow px-4 py-3 rounded-l-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    >
-                    <button class="bg-blue-600 text-white px-6 py-3 rounded-r-lg hover:bg-blue-700">
-                        Subscribe
-                    </button>
-                </div>
+                <form class="space-y-4">
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <input 
+                            type="email" 
+                            placeholder="Enter your email address" 
+                            class="flex-grow px-6 py-4 rounded-lg border border-blue-500 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 text-dark"
+                            required
+                        >
+                        <button type="submit" class="bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50">
+                            Subscribe
+                        </button>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="consent" class="mr-2" required>
+                        <label for="consent" class="text-sm text-blue-100">I agree to receive emails from AMDA-Nepal</label>
+                    </div>
+                </form>
             </div>
-            <div class="bg-blue-600 text-white p-8 rounded-xl">
-                <h4 class="text-2xl font-bold mb-4">Why Subscribe?</h4>
-                <ul class="space-y-3">
-                    <li class="flex items-center">
-                        <svg class="w-6 h-6 mr-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        Latest healthcare updates
+            <div class="bg-white bg-opacity-10 p-8 rounded-xl backdrop-filter backdrop-blur-sm">
+                <h3 class="text-2xl font-bold mb-6">Why Subscribe?</h3>
+                <ul class="space-y-5">
+                    <li class="flex items-start">
+                        <div class="bg-white bg-opacity-20 p-2 rounded-full mr-4">
+                            <i class="fas fa-bell text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Latest Healthcare Updates</h4>
+                            <p class="text-blue-100 text-sm mt-1">Stay informed about our programs and initiatives</p>
+                        </div>
                     </li>
-                    <li class="flex items-center">
-                        <svg class="w-6 h-6 mr-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        Event announcements
+                    <li class="flex items-start">
+                        <div class="bg-white bg-opacity-20 p-2 rounded-full mr-4">
+                            <i class="fas fa-calendar-check text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Event Announcements</h4>
+                            <p class="text-blue-100 text-sm mt-1">Get invitations to our health camps and community events</p>
+                        </div>
                     </li>
-                    <li class="flex items-center">
-                        <svg class="w-6 h-6 mr-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        Community programs
-                    </li>
-                    <li class="flex items-center">
-                        <svg class="w-6 h-6 mr-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        Success stories
+                    <li class="flex items-start">
+                        <div class="bg-white bg-opacity-20 p-2 rounded-full mr-4">
+                            <i class="fas fa-heart text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Success Stories</h4>
+                            <p class="text-blue-100 text-sm mt-1">Read inspiring stories of lives we've touched</p>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -244,91 +497,131 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12 px-4 md:px-16">
-        <div class="container mx-auto grid md:grid-cols-3 gap-8">
+    <footer class="bg-dark text-white py-12 px-4 md:px-16">
+        <div class="container mx-auto grid md:grid-cols-4 gap-8">
+            <!-- Column 1: About -->
             <div>
-                <h4 class="text-xl font-semibold mb-4">AMDA Nepal</h4>
-                <p class="text-gray-400">
-                    Association of Medical Doctors of Asia-Nepal
-                    Kathmandu, Nepal
+                <h3 class="text-xl font-semibold mb-4">AMDA Nepal</h3>
+                <p class="text-gray-400 mb-4">
+                    Association of Medical Doctors of Asia-Nepal is a humanitarian, non-profit organization dedicated to improving healthcare in underserved communities.
                 </p>
-                <div class="flex space-x-4 mt-4">
-                    <a href="#" class="text-gray-400 hover:text-white">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>
-                        </svg>
+                <div class="flex space-x-4">
+                    <a href="#" aria-label="Facebook" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-facebook-f text-lg"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-white">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.415 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.415-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.17-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.681-.824-.9-1.38-.164-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.256-1.814.42-2.234.219-.57.479-.96.9-1.381.419-.419.81-.679 1.379-.899.42-.164 1.051-.359 2.221-.42 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.795.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"></path>
-                        </svg>
+                    <a href="#" aria-label="Twitter" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-twitter text-lg"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-white">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"></path>
-                        </svg>
+                    <a href="#" aria-label="Instagram" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-instagram text-lg"></i>
+                    </a>
+                    <a href="#" aria-label="LinkedIn" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-linkedin-in text-lg"></i>
+                    </a>
+                    <a href="#" aria-label="YouTube" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-youtube text-lg"></i>
                     </a>
                 </div>
             </div>
+            
+            <!-- Column 2: Quick Links -->
             <div>
-                <h4 class="text-xl font-semibold mb-4">Quick Links</h4>
+                <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
                 <ul class="space-y-2">
-                    <li><a href="#" class="text-gray-400 hover:text-white">Home</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white">About Us</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white">What We Do</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white">Resources</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white">Publications</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white">Gallery</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Our Services</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Events</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Gallery</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
                 </ul>
             </div>
+            
+            <!-- Column 3: What We Do -->
             <div>
-                <h4 class="text-xl font-semibold mb-4">Contact Details</h4>
-                <p class="text-gray-400">
-                    Kathmandu Municipality-6, Jorpati
-                    PO Box 9997, Kathmandu, Nepal
-                    Phone: +977 (1) 4910033, 4911140
-                </p>
-                <p class="text-gray-400 mt-4">
-                    Working Hours:
-                    Monday - Friday: 9:00 AM - 5:00 PM
-                    Saturday: 9:00 AM - 1:00 PM
-                    Holidays: Closed
-                </p>
+                <h3 class="text-xl font-semibold mb-4">What We Do</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Healthcare Services</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Community Programs</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Disaster Relief</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Medical Education</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Research</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Advocacy</a></li>
+                </ul>
+            </div>
+            
+            <!-- Column 4: Contact -->
+            <div>
+                <h3 class="text-xl font-semibold mb-4">Contact Us</h3>
+                <address class="not-italic text-gray-400 space-y-3">
+                    <div class="flex items-start">
+                        <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary"></i>
+                        <p>Kathmandu Municipality-6, Jorpati<br>PO Box 9997, Kathmandu, Nepal</p>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-phone-alt mr-3 text-primary"></i>
+                        <a href="tel:+97714910033" class="hover:text-white transition-colors">+977 (1) 4910033</a>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-envelope mr-3 text-primary"></i>
+                        <a href="mailto:amda@amda.org.np" class="hover:text-white transition-colors">amda@amda.org.np</a>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-clock mr-3 text-primary"></i>
+                        <p>Mon-Fri: 9AM-5PM<br>Sat: 9AM-1PM</p>
+                    </div>
+                </address>
             </div>
         </div>
-        <div class="container mx-auto mt-8 pt-4 border-t border-gray-800 text-center">
-            <p class="text-gray-400">
-                © 2025 Association of Medical Doctors of Asia, All Rights Reserved.
-                <span class="ml-4">
-                    <a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a> | 
-                    <a href="#" class="text-gray-400 hover:text-white">Terms of Service</a> | 
-                    <a href="#" class="text-gray-400 hover:text-white">Sitemap</a>
-                </span>
-            </p>
+        
+        <div class="container mx-auto mt-12 pt-6 border-t border-gray-800">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    © 2025 Association of Medical Doctors of Asia-Nepal. All Rights Reserved.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Sitemap</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Accessibility</a>
+                </div>
+            </div>
         </div>
     </footer>
 
     <script>
-        // GSAP Animations
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Scroll Animations for Sections
-        gsap.utils.toArray('section').forEach(section => {
-            gsap.from(section, {
-                opacity: 0,
-                y: 50,
-                duration: 1,
-                scrollTrigger: {
-                    trigger: section,
-                    start: 'top 80%',
-                    end: 'bottom 20%',
-                    toggleActions: 'play none none reverse'
-                }
-            });
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenuButton.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
         });
-
-        // Card Hover Effects
-
+        
+        // Mobile Mega Menu Toggle
+        const mobileMegaMenuButton = document.getElementById('mobile-mega-menu-button');
+        const mobileMegaMenu = document.getElementById('mobile-mega-menu');
+        const mobileMegaMenuIcon = mobileMegaMenuButton.querySelector('svg');
+        
+        mobileMegaMenuButton.addEventListener('click', () => {
+            mobileMegaMenu.classList.toggle('max-h-0');
+            mobileMegaMenu.classList.toggle('max-h-screen');
+            mobileMegaMenuIcon.classList.toggle('rotate-180');
+        });
+        
+        // Desktop Mega Menu Hover Effect
+        const megaMenu = document.querySelector('.group');
+        const megaMenuDropdown = document.querySelector('.mega-menu');
+        
+        megaMenu.addEventListener('mouseenter', () => {
+            megaMenuDropdown.classList.add('active');
+        });
+        
+        megaMenu.addEventListener('mouseleave', () => {
+            megaMenuDropdown.classList.remove('active');
+        });
+        
 </script>
 </body>
 </html>
