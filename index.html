@@ -7,7 +7,15 @@
     <title>AMDA-Nepal | Better Quality of Life for Better Future</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://unpkg.com/lenis@1.2.3/dist/lenis.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
         tailwind.config = {
@@ -38,7 +46,7 @@
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 w-full bg-white shadow-md z-50 px-4 py-3 flex justify-between items-center">
         <div class="flex items-center space-x-4">
-            <a href="#" class="text-xl font-bold text-primary">AMDA-NEPAL</a>
+            <img src="https://www.amda.org.np/image/logo.png" class="w-[20vw]" alt="">
         </div>
         
         <!-- Desktop Navigation -->
@@ -181,14 +189,98 @@
     <!-- Hero Section -->
     <header class="pt-20">
         <div class="relative h-[90vh]">
-            <!-- Hero Image Slider Container -->
-            <div class="hero-slider w-full h-full">
-                <!-- Single image element that will be updated -->
-                <img src="https://www.amda.org.np/files/pics/25th%20Anniversary%20of%20SCWH.jpg" 
-                     alt="AMDA-Nepal team celebrating 25th anniversary with community members" 
-                     class="hero-image w-full h-full object-cover absolute inset-0 opacity-100 transition-opacity duration-500"
-                     loading="eager">
-            </div>
+        
+  <!-- Hero Image Slider Container -->
+  <div class="relative h-[90vh]">
+    <!-- Swiper Container -->
+    <div class="swiper hero-slider w-full h-full">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+          <img src="https://www.amda.org.np/files/pics/25th%20Anniversary%20of%20SCWH.jpg" 
+               alt="AMDA-Nepal team celebrating 25th anniversary" 
+               class="w-full h-full object-cover">
+          <div class="absolute bottom-4 left-4 bg-black bg-opacity-50 text-white px-3 py-1 rounded text-sm">
+            Celebrating 25 Years of Service
+          </div>
+        </div>
+        
+        <!-- Slide 2 -->
+        <div class="swiper-slide">
+          <img src="https://amda.org.np/files/pics/65GA_20810724.jpg" 
+               alt="AMDA-Nepal community event" 
+               class="w-full h-full object-cover">
+          <div class="absolute bottom-4 left-4 bg-black bg-opacity-50 text-white px-3 py-1 rounded text-sm">
+            Community Health Program
+          </div>
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="swiper-slide">
+          <img src="https://amda.org.np/files/pics/StragetigPlanning_20810904-5.png" 
+               alt="AMDA-Nepal strategic planning" 
+               class="w-full h-full object-cover">
+          <div class="absolute bottom-4 left-4 bg-black bg-opacity-50 text-white px-3 py-1 rounded text-sm">
+            Strategic Planning Session
+          </div>
+        </div>
+
+        <!-- Additional Slides -->
+        <div class="swiper-slide">
+          <img src="https://amda.org.np/files/pics/AIHS_Damak-923.jpg" 
+               alt="AMDA-Nepal strategic planning" 
+               class="w-full h-full object-cover">
+          <div class="absolute bottom-4 left-4 bg-black bg-opacity-50 text-white px-3 py-1 rounded text-sm">
+            Healthcare Services
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <img src="https://amda.org.np/files/pics/ReliefMaterialsToEarthquakeVictims_Jajarkor-Rukum%20Paschim_20800723.png" 
+               alt="AMDA-Nepal earthquake relief" 
+               class="w-full h-full object-cover">
+          <div class="absolute bottom-4 left-4 bg-black bg-opacity-50 text-white px-3 py-1 rounded text-sm">
+            Earthquake Relief Program
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Pagination -->
+      <div class="swiper-pagination"></div>
+
+      <!-- Navigation Buttons -->
+      <div class="swiper-button-next" ></div>
+      <div class="swiper-button-prev" ></div>
+    </div>
+
+    <!-- Overlay Content -->
+    <div class="absolute inset-0 hero-overlay flex items-center z-10">
+      <div class="container mx-auto px-4 md:px-16">
+        <div class="max-w-2xl">
+          <h1 class="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
+            Better Quality of Life for a Better Future
+          </h1>
+          <p class="text-xl text-gray-100 mb-8">
+            Providing healthcare services to underserved communities with compassion and excellence since 1989.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <button class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+              Our Services
+            </button>
+            <button class="border-2 border-white text-white px-8 py-3 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
+              Learn More
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
             
             <!-- Overlay Content -->
             <div class="absolute inset-0 hero-overlay flex items-center">
@@ -393,14 +485,17 @@
                     </div>
                 </div>
             </div>
-            <div class="order-1 md:order-2">
-                <img src="" 
-                     alt="AMDA-Nepal medical camp in rural community" 
-                     class="rounded-xl shadow-lg w-full h-auto object-cover"
-                     loading="lazy">
-                <div class="mt-4 text-sm text-gray-500 text-center">
-                    AMDA-Nepal medical team providing care at a rural health camp
+            <div class="order-1 md:order-2 Gallery flex items-center justify-center">
+                <div class="button px-5 py-2 bg-red-500 text-white rounded-full mb-4 next"></div>
+                <div class=" ">
+                    <img src="https://www.amda.org.np/files/pics/3.jpg" 
+                    alt="AMDA-Nepal medical camp in rural community" 
+                    class="rounded-xl shadow-lg w-full h-auto object-cover Gallery " loading="lazy">
+                    <div class="mt-4 text-sm text-gray-500 text-center">
+                        AMDA-Nepal medical team providing care at a rural health camp
+                    </div>
                 </div>
+                <div class="button px-5 py-2 bg-red-500 text-white rounded-full mb-4 prev"></div>
             </div>
         </div>
     </section>

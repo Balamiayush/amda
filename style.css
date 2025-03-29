@@ -64,3 +64,26 @@ html, body {
 .hero-image {
     transition: opacity 500ms ease-in-out;
 }
+
+.hero-slider {
+    --swiper-navigation-color: white;
+    --swiper-pagination-color: white;
+    --swiper-pagination-bullet-inactive-color: white;
+    --swiper-pagination-bullet-inactive-opacity: 0.5;
+}
+
+.hero-overlay {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+
+
+.swiper-button-next:after, 
+.swiper-button-prev:after {
+    font-size: 1rem;
+}
+.swiper-button-next , .swiper-button-prev {
+    position: relative;
+    z-index: 100;
+
+}
