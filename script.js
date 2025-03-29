@@ -40,38 +40,154 @@ megaMenu.addEventListener('mouseenter', () => {
 megaMenu.addEventListener('mouseleave', () => {
     megaMenuDropdown.classList.remove('active');
 });
-// const heroImages  = [
-// {
-// id: 1,
-// src: 'https://amda.org.np/files/pics/65GA_20810724.jpg',
-// title: 'Image 1',
-// description: 'Description for Image 1'
-// },
-// {
-// id: 2,
-// src: 'https://amda.org.np/files/pics/StragetigPlanning_20810904-5.png',
-// title: 'Image 2',
-// description: 'Description for Image 2'
-// },
-// {
-// id: 3,
-// src: 'https://amda.org.np/files/pics/AMDA%20Mechi%20Hospital_Dhulabari-Jhapa2.png',
-// title: 'Image 3',
-// description: 'Description for Image 3'
-// },
-// {
-// id: 4,
-// src: 'https://amda.org.np/files/pics/ReliefMaterialsToEarthquakeVictims_Jajarkor-Rukum%20Paschim_20800723.png',
-// title: 'Image 4',
-// description: 'Description for Image 4'
-// },
-// {
-// id: 5,
-// src: 'https://amda.org.np/files/pics/AIHS_Damak-923.jpg',
-// title: 'Image 5',
-// description: 'Description for Image 5'
-// }
-// ];
+document.addEventListener('DOMContentLoaded', () => {
+  // Initialize GSAP timeline
+  const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+  
+  // Text reveal animation
+  tl.from(".text-reveal", {
+      duration: 1.2,
+      clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
+      y: 50,
+      opacity: 0,
+      stagger: 0.2
+  });
+  
+  // Paragraph fade in
+  tl.to("p", {
+      duration: 0.8,
+      opacity: 1,
+      y: 0
+  }, "-=0.6");
+  
+  // Buttons fade in
+  tl.to(".flex.justify-center", {
+      duration: 0.8,
+      opacity: 1,
+      y: 0
+  }, "-=0.4");
+  
+  // Scroll indicator animation
+  tl.to(".absolute.bottom-10", {
+      duration: 0.6,
+      opacity: 1,
+      y: 0
+  }, "-=0.4");
+  
+  // Background video parallax effect on scroll
+  if (window.innerWidth > 768) {
+      window.addEventListener('scroll', () => {
+          const scrollPosition = window.scrollY;
+          const video = document.querySelector('video');
+          if (video) {
+              video.style.transform = `translateY(${scrollPosition * 0.3}px)`;
+          }
+      });
+  }
+});
+// Array of all image URLs
+document.addEventListener('DOMContentLoaded', () => {
+  // Image gallery functionality
+  const heroImages = [
+      "https://www.amda.org.np/files/pics/25th%20Anniversary%20of%20SCWH.jpg",
+      "https://amda.org.np/files/pics/65GA_20810724.jpg",
+      "https://amda.org.np/files/pics/StragetigPlanning_20810904-5.png",
+      "https://amda.org.np/files/pics/AIHS_Damak-923.jpg",
+      "https://amda.org.np/files/pics/ReliefMaterialsToEarthquakeVictims_Jajarkor-Rukum%20Paschim_20800723.png",
+      "https://www.amda.org.np/files/pics/3.jpg"
+  ];
+  
+  let currentIndex = 0;
+  const galleryImage = document.querySelector('.gallery-image');
+  const dotsContainer = document.querySelector('.absolute.bottom-8');
+  
+  // Create dot indicators
+  heroImages.forEach((_, index) => {
+      const dot = document.createElement('div');
+      dot.className = `dot w-3 h-3 rounded-full bg-white/50 cursor-pointer ${index === 0 ? 'active' : ''}`;
+      dot.addEventListener('click', () => changeImage(index));
+      dotsContainer.appendChild(dot);
+  });
+  
+  const dots = document.querySelectorAll('.dot');
+  
+  function changeImage(newIndex) {
+      // Don't do anything if same image is clicked
+      if (newIndex === currentIndex) return;
+      
+      // GSAP animation for image transition
+      const tl = gsap.timeline();
+      
+      tl.to(galleryImage, {
+          opacity: 0,
+          duration: 0.5,
+          ease: "power2.inOut",
+          onComplete: () => {
+              galleryImage.src = heroImages[newIndex];
+              
+              // Update active dot
+              dots[currentIndex].classList.remove('active');
+              dots[newIndex].classList.add('active');
+              currentIndex = newIndex;
+          }
+      });
+      
+      tl.to(galleryImage, {
+          opacity: 1,
+          duration: 0.5,
+          ease: "power2.inOut"
+      });
+  }
+  
+  // Navigation button event listeners
+  document.querySelector('.next').addEventListener('click', () => {
+      changeImage((currentIndex + 1) % heroImages.length);
+  });
+  
+  document.querySelector('.prev').addEventListener('click', () => {
+      changeImage((currentIndex - 1 + heroImages.length) % heroImages.length);
+  });
+  
+  // Auto-rotate images every 5 seconds
+  let interval = setInterval(() => {
+      changeImage((currentIndex + 1) % heroImages.length);
+  }, 5000);
+  
+  // Pause auto-rotation on hover
+  const gallery = document.querySelector('header');
+  gallery.addEventListener('mouseenter', () => clearInterval(interval));
+  gallery.addEventListener('mouseleave', () => {
+      interval = setInterval(() => {
+          changeImage((currentIndex + 1) % heroImages.length);
+      }, 5000);
+  });
+  
+  // Initialize GSAP timeline for text animations
+  const textTl = gsap.timeline({ defaults: { ease: "power3.out" } });
+  
+  // Text reveal animation
+  textTl.from(".text-reveal", {
+      duration: 1.2,
+      clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
+      y: 50,
+      opacity: 0,
+      stagger: 0.2
+  });
+  
+  // Paragraph fade in
+  textTl.to("p", {
+      duration: 0.8,
+      opacity: 1,
+      y: 0
+  }, "-=0.6");
+  
+  // Buttons fade in
+  textTl.to(".flex.justify-center", {
+      duration: 0.8,
+      opacity: 1,
+      y: 0
+  }, "-=0.4");
+});
 var swiper = new Swiper(".hero-slider", {
     loop: true, // Infinite loop
     autoplay: {
@@ -92,9 +208,7 @@ var swiper = new Swiper(".hero-slider", {
     },
   });
 
-  document.querySelector(".swiper-button-next").addEventListener("click", function() {
-      console.log("hel");
-    });
+
 
     const heroImages = [
         "https://www.amda.org.np/files/pics/61General%20Assembly_AMDA%20Nepal_%2020790719%20(img%202)-189.jpg",
@@ -107,21 +221,22 @@ var swiper = new Swiper(".hero-slider", {
         "https://www.amda.org.np/files/pics/Grand%20Presentastion%20GM%203rd%20year_Dhulabari%20PHC_20790812.jpg",
         "https://www.amda.org.np/files/pics/3.jpg"
     ];
-    let Gallery = document.querySelector(".Gallery");
     let index = 0;
-    document.querySelector(".next").addEventListener("click", function() {
-        index++;
-        if (index > heroImages.length - 1) {
-            index = 0;
-        }
-        Gallery.src = heroImages[index];
-        });
-        document.querySelector(".prev").addEventListener("click", function() {
-            console.log("hello");
-            
-            index--;
-            if (index < 0) {
-                index = heroImages.length - 1;
-                }
-                Gallery.src = heroImages[index];
-                });
+    let galleryImage = document.querySelector(".Gallery");
+    
+    function changeImage(newIndex) {
+        galleryImage.classList.add("fade-out"); // Add fade-out class
+        setTimeout(() => {
+            index = newIndex;
+            galleryImage.src = heroImages[index]; // Change the image source
+            galleryImage.classList.remove("fade-out"); // Remove fade-out class after transition
+        }, 100); // Match the CSS transition duration (0.5s)
+    }
+    
+    document.querySelector(".next").addEventListener("click", function () {
+        changeImage((index + 1) % heroImages.length); // Circular navigation
+    });
+    
+    document.querySelector(".prev").addEventListener("click", function () {
+        changeImage((index - 1 + heroImages.length) % heroImages.length); // Circular navigation
+    });

@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AMDA-Nepal provides healthcare services and community programs to underserved communities in Nepal with compassion and excellence since 1989.">
+    <meta name="description"
+        content="AMDA-Nepal provides healthcare services and community programs to underserved communities in Nepal with compassion and excellence since 1989.">
     <title>AMDA-Nepal | Better Quality of Life for Better Future</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <script src="https://unpkg.com/lenis@1.2.3/dist/lenis.min.js"></script> 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-/>
-
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.2.3/dist/lenis.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
         tailwind.config = {
@@ -42,18 +39,19 @@
     </script>
 
 </head>
+
 <body class="bg-white text-gray-800 font-sans">
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 w-full bg-white shadow-md z-50 px-4 py-3 flex justify-between items-center">
         <div class="flex items-center space-x-4">
             <img src="https://www.amda.org.np/image/logo.png" class="w-[20vw]" alt="">
         </div>
-        
+
         <!-- Desktop Navigation -->
         <div class="hidden md:flex space-x-6 items-center">
             <a href="#" class="text-gray-700 hover:text-primary transition-colors">Home</a>
             <a href="#" class="text-gray-700 hover:text-primary transition-colors">About Us</a>
-            
+
             <!-- Mega Menu Container -->
             <div class="relative group">
                 <button class="text-gray-700 hover:text-primary flex items-center focus:outline-none transition-colors">
@@ -62,7 +60,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                     </svg>
                 </button>
-                
+
                 <!-- Mega Menu Dropdown -->
                 <div class="absolute left-0 mt-2 w-[600px] bg-white shadow-xl rounded-lg z-50 mega-menu">
                     <div class="grid grid-cols-3 gap-6 p-6">
@@ -72,44 +70,62 @@
                                 <i class="fas fa-hospital mr-2 text-primary"></i> Health Services
                             </h3>
                             <ul class="space-y-3">
-                                <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fas fa-medkit mr-2 text-secondary"></i> Medical Camps</a></li>
-                                <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fas fa-clinic-medical mr-2 text-secondary"></i> Hospitals</a></li>
-                                <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fas fa-graduation-cap mr-2 text-secondary"></i> Training</a></li>
+                                <li><a href="#"
+                                        class="text-gray-600 hover:text-primary transition-colors flex items-center"><i
+                                            class="fas fa-medkit mr-2 text-secondary"></i> Medical Camps</a></li>
+                                <li><a href="#"
+                                        class="text-gray-600 hover:text-primary transition-colors flex items-center"><i
+                                            class="fas fa-clinic-medical mr-2 text-secondary"></i> Hospitals</a></li>
+                                <li><a href="#"
+                                        class="text-gray-600 hover:text-primary transition-colors flex items-center"><i
+                                            class="fas fa-graduation-cap mr-2 text-secondary"></i> Training</a></li>
                             </ul>
                         </div>
-                        
+
                         <!-- Column 2 -->
                         <div>
                             <h3 class="font-semibold text-dark mb-3 flex items-center">
                                 <i class="fas fa-hands-helping mr-2 text-primary"></i> Community Programs
                             </h3>
                             <ul class="space-y-3">
-                                <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fas fa-book-open mr-2 text-secondary"></i> Education</a></li>
-                                <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fas fa-ambulance mr-2 text-secondary"></i> Disaster Relief</a></li>
-                                <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fas fa-people-carry mr-2 text-secondary"></i> Outreach</a></li>
+                                <li><a href="#"
+                                        class="text-gray-600 hover:text-primary transition-colors flex items-center"><i
+                                            class="fas fa-book-open mr-2 text-secondary"></i> Education</a></li>
+                                <li><a href="#"
+                                        class="text-gray-600 hover:text-primary transition-colors flex items-center"><i
+                                            class="fas fa-ambulance mr-2 text-secondary"></i> Disaster Relief</a></li>
+                                <li><a href="#"
+                                        class="text-gray-600 hover:text-primary transition-colors flex items-center"><i
+                                            class="fas fa-people-carry mr-2 text-secondary"></i> Outreach</a></li>
                             </ul>
                         </div>
-                        
+
                         <!-- Column 3 -->
                         <div>
                             <h3 class="font-semibold text-dark mb-3 flex items-center">
                                 <i class="fas fa-hand-holding-heart mr-2 text-primary"></i> Support
                             </h3>
                             <ul class="space-y-3">
-                                <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fas fa-hands mr-2 text-secondary"></i> Volunteering</a></li>
-                                <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fas fa-handshake mr-2 text-secondary"></i> Partnerships</a></li>
-                                <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fas fa-donate mr-2 text-secondary"></i> Donations</a></li>
+                                <li><a href="#"
+                                        class="text-gray-600 hover:text-primary transition-colors flex items-center"><i
+                                            class="fas fa-hands mr-2 text-secondary"></i> Volunteering</a></li>
+                                <li><a href="#"
+                                        class="text-gray-600 hover:text-primary transition-colors flex items-center"><i
+                                            class="fas fa-handshake mr-2 text-secondary"></i> Partnerships</a></li>
+                                <li><a href="#"
+                                        class="text-gray-600 hover:text-primary transition-colors flex items-center"><i
+                                            class="fas fa-donate mr-2 text-secondary"></i> Donations</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <a href="#" class="text-gray-700 hover:text-primary transition-colors">Resources</a>
             <a href="#" class="text-gray-700 hover:text-primary transition-colors">Publications</a>
             <a href="#" class="text-gray-700 hover:text-primary transition-colors">Gallery</a>
         </div>
-        
+
         <!-- Mobile Menu Button -->
         <div class="md:hidden flex items-center space-x-4">
             <a href="#" class="text-gray-700 hover:text-primary">Log In</a>
@@ -119,29 +135,33 @@
                 <div class="hamburger-line w-6 h-0.5 bg-gray-700 my-1 transition-all"></div>
             </button>
         </div>
-        
+
         <!-- Desktop Auth Buttons -->
         <div class="hidden md:flex items-center space-x-4">
             <a href="#" class="text-gray-700 hover:text-primary transition-colors">Log In</a>
-            <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">Donate Now</button>
+            <button
+                class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">Donate
+                Now</button>
         </div>
     </nav>
-    
+
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="mobile-menu fixed top-16 left-0 w-full bg-white shadow-lg z-40 md:hidden">
         <div class="px-4 py-3 space-y-4">
             <a href="#" class="block py-2 text-gray-700 hover:text-primary transition-colors">Home</a>
             <a href="#" class="block py-2 text-gray-700 hover:text-primary transition-colors">About Us</a>
-            
+
             <!-- Mobile Mega Menu Trigger -->
             <div class="relative">
-                <button id="mobile-mega-menu-button" class="w-full flex justify-between items-center py-2 text-gray-700 hover:text-primary transition-colors focus:outline-none">
+                <button id="mobile-mega-menu-button"
+                    class="w-full flex justify-between items-center py-2 text-gray-700 hover:text-primary transition-colors focus:outline-none">
                     <span>What We Do</span>
-                    <svg class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                     </svg>
                 </button>
-                
+
                 <!-- Mobile Mega Menu Content -->
                 <div id="mobile-mega-menu" class="pl-4 overflow-hidden max-h-0 transition-all duration-300">
                     <div class="py-2 space-y-3">
@@ -149,204 +169,152 @@
                             <i class="fas fa-hospital mr-2 text-primary text-sm"></i> Health Services
                         </h3>
                         <ul class="space-y-2 pl-4">
-                            <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fas fa-medkit mr-2 text-secondary text-xs"></i> Medical Camps</a></li>
-                            <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fas fa-clinic-medical mr-2 text-secondary text-xs"></i> Hospitals</a></li>
-                            <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fas fa-graduation-cap mr-2 text-secondary text-xs"></i> Training</a></li>
+                            <li><a href="#"
+                                    class="text-gray-600 hover:text-primary transition-colors flex items-center"><i
+                                        class="fas fa-medkit mr-2 text-secondary text-xs"></i> Medical Camps</a></li>
+                            <li><a href="#"
+                                    class="text-gray-600 hover:text-primary transition-colors flex items-center"><i
+                                        class="fas fa-clinic-medical mr-2 text-secondary text-xs"></i> Hospitals</a>
+                            </li>
+                            <li><a href="#"
+                                    class="text-gray-600 hover:text-primary transition-colors flex items-center"><i
+                                        class="fas fa-graduation-cap mr-2 text-secondary text-xs"></i> Training</a></li>
                         </ul>
                     </div>
-                    
+
                     <div class="py-2 space-y-3">
                         <h3 class="font-semibold text-dark mb-2 flex items-center">
                             <i class="fas fa-hands-helping mr-2 text-primary text-sm"></i> Community Programs
                         </h3>
                         <ul class="space-y-2 pl-4">
-                            <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fas fa-book-open mr-2 text-secondary text-xs"></i> Education</a></li>
-                            <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fas fa-ambulance mr-2 text-secondary text-xs"></i> Disaster Relief</a></li>
-                            <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fas fa-people-carry mr-2 text-secondary text-xs"></i> Outreach</a></li>
+                            <li><a href="#"
+                                    class="text-gray-600 hover:text-primary transition-colors flex items-center"><i
+                                        class="fas fa-book-open mr-2 text-secondary text-xs"></i> Education</a></li>
+                            <li><a href="#"
+                                    class="text-gray-600 hover:text-primary transition-colors flex items-center"><i
+                                        class="fas fa-ambulance mr-2 text-secondary text-xs"></i> Disaster Relief</a>
+                            </li>
+                            <li><a href="#"
+                                    class="text-gray-600 hover:text-primary transition-colors flex items-center"><i
+                                        class="fas fa-people-carry mr-2 text-secondary text-xs"></i> Outreach</a></li>
                         </ul>
                     </div>
-                    
+
                     <div class="py-2 space-y-3">
                         <h3 class="font-semibold text-dark mb-2 flex items-center">
                             <i class="fas fa-hand-holding-heart mr-2 text-primary text-sm"></i> Support
                         </h3>
                         <ul class="space-y-2 pl-4">
-                            <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fas fa-hands mr-2 text-secondary text-xs"></i> Volunteering</a></li>
-                            <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fas fa-handshake mr-2 text-secondary text-xs"></i> Partnerships</a></li>
-                            <li><a href="#" class="text-gray-600 hover:text-primary transition-colors flex items-center"><i class="fas fa-donate mr-2 text-secondary text-xs"></i> Donations</a></li>
+                            <li><a href="#"
+                                    class="text-gray-600 hover:text-primary transition-colors flex items-center"><i
+                                        class="fas fa-hands mr-2 text-secondary text-xs"></i> Volunteering</a></li>
+                            <li><a href="#"
+                                    class="text-gray-600 hover:text-primary transition-colors flex items-center"><i
+                                        class="fas fa-handshake mr-2 text-secondary text-xs"></i> Partnerships</a></li>
+                            <li><a href="#"
+                                    class="text-gray-600 hover:text-primary transition-colors flex items-center"><i
+                                        class="fas fa-donate mr-2 text-secondary text-xs"></i> Donations</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
-            
+
             <a href="#" class="block py-2 text-gray-700 hover:text-primary transition-colors">Resources</a>
             <a href="#" class="block py-2 text-gray-700 hover:text-primary transition-colors">Publications</a>
             <a href="#" class="block py-2 text-gray-700 hover:text-primary transition-colors">Gallery</a>
-            <button class="w-full bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">Donate Now</button>
+            <button
+                class="w-full bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">Donate
+                Now</button>
         </div>
     </div>
 
     <!-- Hero Section -->
-    <header class="pt-20">
-        <div class="relative h-[90vh]">
-        
-  <!-- Hero Image Slider Container -->
-  <div class="relative h-[90vh]">
-    <!-- Swiper Container -->
-    <div class="swiper hero-slider w-full h-full">
-      <div class="swiper-wrapper">
-        <!-- Slide 1 -->
-        <div class="swiper-slide">
-          <img src="https://www.amda.org.np/files/pics/25th%20Anniversary%20of%20SCWH.jpg" 
-               alt="AMDA-Nepal team celebrating 25th anniversary" 
-               class="w-full h-full object-cover">
-          <div class="absolute bottom-4 left-4 bg-black bg-opacity-50 text-white px-3 py-1 rounded text-sm">
-            Celebrating 25 Years of Service
-          </div>
-        </div>
-        
-        <!-- Slide 2 -->
-        <div class="swiper-slide">
-          <img src="https://amda.org.np/files/pics/65GA_20810724.jpg" 
-               alt="AMDA-Nepal community event" 
-               class="w-full h-full object-cover">
-          <div class="absolute bottom-4 left-4 bg-black bg-opacity-50 text-white px-3 py-1 rounded text-sm">
-            Community Health Program
-          </div>
-        </div>
-        
-        <!-- Slide 3 -->
-        <div class="swiper-slide">
-          <img src="https://amda.org.np/files/pics/StragetigPlanning_20810904-5.png" 
-               alt="AMDA-Nepal strategic planning" 
-               class="w-full h-full object-cover">
-          <div class="absolute bottom-4 left-4 bg-black bg-opacity-50 text-white px-3 py-1 rounded text-sm">
-            Strategic Planning Session
-          </div>
+    <header class="relative h-screen w-full overflow-hidden">
+        <!-- Background Gallery -->
+        <div class="absolute inset-0">
+            <img src="https://www.amda.org.np/files/pics/25th%20Anniversary%20of%20SCWH.jpg"
+                alt="AMDA-Nepal gallery image" class="gallery-image w-full h-full object-cover ">
+            <div class="absolute inset-0 gradient-overlay"></div>
         </div>
 
-        <!-- Additional Slides -->
-        <div class="swiper-slide">
-          <img src="https://amda.org.np/files/pics/AIHS_Damak-923.jpg" 
-               alt="AMDA-Nepal strategic planning" 
-               class="w-full h-full object-cover">
-          <div class="absolute bottom-4 left-4 bg-black bg-opacity-50 text-white px-3 py-1 rounded text-sm">
-            Healthcare Services
-          </div>
+        <!-- Navigation Buttons -->
+        <button
+            class="nav-button prev absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/30 text-white p-3 rounded-full z-20">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+        </button>
+
+        <button
+            class="nav-button next absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/30 text-white p-3 rounded-full z-20">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+        </button>
+
+        <!-- Dot Indicators -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
+            <!-- Dots will be added dynamically by JavaScript -->
         </div>
 
-        <div class="swiper-slide">
-          <img src="https://amda.org.np/files/pics/ReliefMaterialsToEarthquakeVictims_Jajarkor-Rukum%20Paschim_20800723.png" 
-               alt="AMDA-Nepal earthquake relief" 
-               class="w-full h-full object-cover">
-          <div class="absolute bottom-4 left-4 bg-black bg-opacity-50 text-white px-3 py-1 rounded text-sm">
-            Earthquake Relief Program
-          </div>
-        </div>
+        <!-- Overlay Content -->
+        <div class="absolute inset-0 flex items-center justify-center text-center px-6">
+            <div class="max-w-4xl px-4 sm:px-6 lg:px-8">
+                <!-- Animated heading -->
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-white text-reveal">
+                    <span class="inline-block">Better Quality of Life</span><br>
+                    <span class="inline-block">for a Better Future</span>
+                </h1>
 
-      </div>
+                <!-- Animated paragraph -->
+                <div class="relative mt-[15vw]">
 
-      <!-- Pagination -->
-      <div class="swiper-pagination"></div>
+                    <p class="text-xl md:text-2xl  font-semibold mb-8 max-w-2xl mx-auto opacity-0">
+                        Providing healthcare services to underserved communities with compassion and excellence since
+                        1989.
+                    </p>
 
-      <!-- Navigation Buttons -->
-      <div class="swiper-button-next" ></div>
-      <div class="swiper-button-prev" ></div>
-    </div>
-
-    <!-- Overlay Content -->
-    <div class="absolute inset-0 hero-overlay flex items-center z-10">
-      <div class="container mx-auto px-4 md:px-16">
-        <div class="max-w-2xl">
-          <h1 class="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
-            Better Quality of Life for a Better Future
-          </h1>
-          <p class="text-xl text-gray-100 mb-8">
-            Providing healthcare services to underserved communities with compassion and excellence since 1989.
-          </p>
-          <div class="flex flex-wrap gap-4">
-            <button class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors">
-              Our Services
-            </button>
-            <button class="border-2 border-white text-white px-8 py-3 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors">
-              Learn More
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Swiper JS -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-  <!-- Initialize Swiper -->
-            
-            <!-- Overlay Content -->
-            <div class="absolute inset-0 hero-overlay flex items-center">
-                <div class="container mx-auto px-4 md:px-16">
-                    <div class="max-w-2xl">
-                        <h1 class="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
-                            Better Quality of Life for Better Future
-                        </h1>
-                        <p class="text-xl text-gray-100 mb-8">
-                            Providing healthcare services to underserved communities with compassion and excellence since 1989
-                        </p>
-                        <div class="flex flex-wrap gap-4">
-                            <button class="bg-primary text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50">
-                                Our Services
-                            </button>
-                            <button class="border-2 border-white text-white px-8 py-3 rounded-lg hover:bg-white hover:bg-opacity-10 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50">
-                                Learn More
-                            </button>
-                        </div>
+                    <!-- Animated buttons -->
+                    <div class="flex flex-col sm:flex-row justify-center gap-4 opacity-0">
+                        <button
+                            class="bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-50 transition-all transform hover:scale-105 shadow-lg">
+                            Our Services
+                        </button>
+                        <button
+                            class="border-2 border-white px-8 py-4 rounded-full text-lg font-semibold text-white hover:bg-white hover:text-blue-600 transition-all transform hover:scale-105">
+                            Learn More
+                        </button>
                     </div>
-                </div>
-            </div>
-            
-            <!-- Image Caption -->
-            <div class="absolute bottom-4 left-4 bg-black bg-opacity-50 text-white px-3 py-1 rounded text-sm">
-                Celebrating 25 Years of Service
-            </div>
-            
-            <!-- Navigation Dots (optional) -->
-            <div class="absolute bottom-8 right-8 flex space-x-2">
-                <!-- Dots will be added by JavaScript -->
-            </div>
-        </div>
-        <div class="container mx-auto px-4 md:px-16 py-12 relative top-10">
-            <div class="bg-white shadow-xl rounded-xl p-8 grid md:grid-cols-3 gap-8 -mt-16 relative z-10">
-                <div class="text-center animate-count-up">
-                    <div class="flex justify-center mb-3">
-                        <i class="fas fa-calendar-alt text-4xl text-primary"></i>
-                    </div>
-                    <h3 class="text-4xl font-bold text-primary mb-2 count" data-target="30">0+</h3>
-                    <p class="text-gray-600 font-medium">Years Experience</p>
-                </div>
-                <div class="text-center animate-count-up">
-                    <div class="flex justify-center mb-3">
-                        <i class="fas fa-user-injured text-4xl text-primary"></i>
-                    </div>
-                    <h3 class="text-4xl font-bold text-primary mb-2 count" data-target="100">0k+</h3>
-                    <p class="text-gray-600 font-medium">Patients Helped</p>
-                </div>
-                <div class="text-center animate-count-up">
-                    <div class="flex justify-center mb-3">
-                        <i class="fas fa-medkit text-4xl text-primary"></i>
-                    </div>
-                    <h3 class="text-4xl font-bold text-primary mb-2 count" data-target="50">0+</h3>
-                    <p class="text-gray-600 font-medium">Medical Camps</p>
                 </div>
             </div>
         </div>
     </header>
 
     <!-- What We Do Section -->
-    <section class="py-16 px-4  md:px-16 bg-white">
+    <section class="py-5 px-4  md:px-16 bg-white flex flex-col items-center ">
+        <div class="  bg-gray-400 shadow-lg shadow-xl rounded-xl p-10  relative flex gap-8 animate-fadeInUp delay-600">
+            <div class="text-center">
+                <h3 class="text-3xl font-bold text-blue-900">30+</h3>
+                <p class="text-gray-600 text-sm">Years Experience</p>
+            </div>
+            <div class="text-center">
+                <h3 class="text-3xl font-bold text-blue-900">100k+</h3>
+                <p class="text-gray-600 text-sm">Patients Helped</p>
+            </div>
+            <div class="text-center">
+                <h3 class="text-3xl font-bold text-blue-900">50+</h3>
+                <p class="text-gray-600 text-sm">Medical Camps</p>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
         <div class="container mx-auto text-center mb-12">
             <h2 class="text-3xl font-bold text-dark mb-4">What We Do</h2>
             <p class="text-gray-600 max-w-2xl mx-auto text-lg">
-                Our comprehensive range of services aimed at improving healthcare accessibility and quality in underserved communities.
+                Our comprehensive range of services aimed at improving healthcare accessibility and quality in
+                underserved communities.
             </p>
         </div>
         <div class="container mx-auto grid md:grid-cols-3 gap-8">
@@ -359,13 +327,15 @@
                 </div>
                 <h3 class="text-xl font-semibold text-dark mb-4">Hospitals & Clinics</h3>
                 <p class="text-gray-600 mb-6">
-                    Access to quality healthcare services through our network of hospitals and clinics across the region.
+                    Access to quality healthcare services through our network of hospitals and clinics across the
+                    region.
                 </p>
-                <a href="#" class="inline-flex items-center text-primary font-medium hover:text-blue-700 transition-colors">
+                <a href="#"
+                    class="inline-flex items-center text-primary font-medium hover:text-blue-700 transition-colors">
                     Learn more <i class="fas fa-arrow-right ml-2"></i>
                 </a>
             </div>
-            
+
             <!-- Card 2 -->
             <div class="bg-blue-400 p-8 rounded-xl text-center card-hover transition-all duration-300">
                 <div class="flex justify-center mb-6">
@@ -377,11 +347,12 @@
                 <p class="text-gray-600 mb-6">
                     Education and training programs for healthcare professionals to enhance their skills and knowledge.
                 </p>
-                <a href="#" class="inline-flex items-center text-primary font-medium hover:text-blue-700 transition-colors">
+                <a href="#"
+                    class="inline-flex items-center text-primary font-medium hover:text-blue-700 transition-colors">
                     Learn more <i class="fas fa-arrow-right ml-2"></i>
                 </a>
             </div>
-            
+
             <!-- Card 3 -->
             <div class="bg-blue-400 p-8 rounded-xl text-center card-hover transition-all duration-300">
                 <div class="flex justify-center mb-6">
@@ -393,7 +364,8 @@
                 <p class="text-gray-600 mb-6">
                     Working with local and international organizations to expand our reach and impact.
                 </p>
-                <a href="#" class="inline-flex items-center text-primary font-medium hover:text-blue-700 transition-colors">
+                <a href="#"
+                    class="inline-flex items-center text-primary font-medium hover:text-blue-700 transition-colors">
                     Learn more <i class="fas fa-arrow-right ml-2"></i>
                 </a>
             </div>
@@ -414,11 +386,12 @@
                 <p class="text-gray-600 mb-6">
                     Commitment to transparency and accountability in our service delivery to the community.
                 </p>
-                <a href="#" class="inline-flex items-center text-primary font-medium hover:text-blue-700 transition-colors">
+                <a href="#"
+                    class="inline-flex items-center text-primary font-medium hover:text-blue-700 transition-colors">
                     Learn more <i class="fas fa-arrow-right ml-2"></i>
                 </a>
             </div>
-            
+
             <!-- Card 2 -->
             <div class="bg-blue-400 p-8 rounded-xl text-center card-hover transition-all duration-300">
                 <div class="flex justify-center mb-6">
@@ -430,11 +403,12 @@
                 <p class="text-gray-600 mb-6">
                     Rapid response to disasters and emergencies, providing critical healthcare support when needed.
                 </p>
-                <a href="#" class="inline-flex items-center text-primary font-medium hover:text-blue-700 transition-colors">
+                <a href="#"
+                    class="inline-flex items-center text-primary font-medium hover:text-blue-700 transition-colors">
                     Learn more <i class="fas fa-arrow-right ml-2"></i>
                 </a>
             </div>
-            
+
             <!-- Card 3 -->
             <div class="bg-blue-400 p-8 rounded-xl text-center card-hover transition-all duration-300">
                 <div class="flex justify-center mb-6">
@@ -444,9 +418,11 @@
                 </div>
                 <h3 class="text-xl font-semibold text-dark mb-4">Social Responsibility</h3>
                 <p class="text-gray-600 mb-6">
-                    Initiatives focused on community well-being, preventive healthcare, and social determinants of health.
+                    Initiatives focused on community well-being, preventive healthcare, and social determinants of
+                    health.
                 </p>
-                <a href="#" class="inline-flex items-center text-primary font-medium hover:text-blue-700 transition-colors">
+                <a href="#"
+                    class="inline-flex items-center text-primary font-medium hover:text-blue-700 transition-colors">
                     Learn more <i class="fas fa-arrow-right ml-2"></i>
                 </a>
             </div>
@@ -459,7 +435,10 @@
             <div class="order-2 md:order-1">
                 <h2 class="text-3xl font-bold text-dark mb-6">Dedicated to Healthcare Excellence since 1989</h2>
                 <p class="text-gray-600 mb-6 text-lg leading-relaxed">
-                    Association of Medical Doctors of Asia-Nepal (AMDA-Nepal) was established in 1989 as a chapter of AMDA-International. Legally registered in the government office as an NGO in March 4, 1991, it is a humanitarian, non-profit making, non-political organization committed to providing quality healthcare services to underserved communities.
+                    Association of Medical Doctors of Asia-Nepal (AMDA-Nepal) was established in 1989 as a chapter of
+                    AMDA-International. Legally registered in the government office as an NGO in March 4, 1991, it is a
+                    humanitarian, non-profit making, non-political organization committed to providing quality
+                    healthcare services to underserved communities.
                 </p>
                 <div class="grid grid-cols-3 gap-4 mt-8">
                     <div class="bg-light p-4 rounded-lg text-center">
@@ -485,19 +464,25 @@
                     </div>
                 </div>
             </div>
-            <div class="order-1 md:order-2 Gallery flex items-center justify-center">
-                <div class="button px-5 py-2 bg-red-500 text-white rounded-full mb-4 next"></div>
-                <div class=" ">
-                    <img src="https://www.amda.org.np/files/pics/3.jpg" 
-                    alt="AMDA-Nepal medical camp in rural community" 
-                    class="rounded-xl shadow-lg w-full h-auto object-cover Gallery " loading="lazy">
-                    <div class="mt-4 text-sm text-gray-500 text-center">
+            <div class="flex items-center space-x-4">
+                <!-- Previous Button -->
+                <button class="px-3  bg-blue-600 text-white rounded-lg prev"><i
+                        class="ri-arrow-left-s-line"></i></button>
+
+                <!-- Image Container -->
+                <div class="flex flex-col items-center w-full h-full object-cover">
+                    <img src="https://www.amda.org.np/files/pics/3.jpg" alt="AMDA-Nepal medical camp in rural community"
+                        class="rounded-xl shadow-lg w-[500px] h-auto object-cover  Gallery" loading="lazy">
+                    <div class="mt-4 text-sm text-gray-900 text-center">
                         AMDA-Nepal medical team providing care at a rural health camp
                     </div>
                 </div>
-                <div class="button px-5 py-2 bg-red-500 text-white rounded-full mb-4 prev"></div>
+
+                <!-- Next Button -->
+                <button class="px-3  bg-blue-600 text-white rounded-lg next"><i
+                        class="ri-arrow-right-s-line"></i></button>
             </div>
-        </div>
+
     </section>
 
     <!-- Newsletter Section -->
@@ -510,19 +495,18 @@
                 </p>
                 <form class="space-y-4">
                     <div class="flex flex-col md:flex-row gap-4">
-                        <input 
-                            type="email" 
-                            placeholder="Enter your email address" 
+                        <input type="email" placeholder="Enter your email address"
                             class="flex-grow px-6 py-4 rounded-lg border border-blue-500 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 text-dark"
-                            required
-                        >
-                        <button type="submit" class="bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50">
+                            required>
+                        <button type="submit"
+                            class="bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50">
                             Subscribe
                         </button>
                     </div>
                     <div class="flex items-center">
                         <input type="checkbox" id="consent" class="mr-2" required>
-                        <label for="consent" class="text-sm text-blue-100">I agree to receive emails from AMDA-Nepal</label>
+                        <label for="consent" class="text-sm text-blue-100">I agree to receive emails from
+                            AMDA-Nepal</label>
                     </div>
                 </form>
             </div>
@@ -544,7 +528,8 @@
                         </div>
                         <div>
                             <h4 class="font-semibold">Event Announcements</h4>
-                            <p class="text-blue-100 text-sm mt-1">Get invitations to our health camps and community events</p>
+                            <p class="text-blue-100 text-sm mt-1">Get invitations to our health camps and community
+                                events</p>
                         </div>
                     </li>
                     <li class="flex items-start">
@@ -568,7 +553,8 @@
             <div>
                 <h3 class="text-xl font-semibold mb-4">AMDA Nepal</h3>
                 <p class="text-gray-400 mb-4">
-                    Association of Medical Doctors of Asia-Nepal is a humanitarian, non-profit organization dedicated to improving healthcare in underserved communities.
+                    Association of Medical Doctors of Asia-Nepal is a humanitarian, non-profit organization dedicated to
+                    improving healthcare in underserved communities.
                 </p>
                 <div class="flex space-x-4">
                     <a href="#" aria-label="Facebook" class="text-gray-400 hover:text-white transition-colors">
@@ -588,7 +574,7 @@
                     </a>
                 </div>
             </div>
-            
+
             <!-- Column 2: Quick Links -->
             <div>
                 <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
@@ -601,12 +587,13 @@
                     <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
                 </ul>
             </div>
-            
+
             <!-- Column 3: What We Do -->
             <div>
                 <h3 class="text-xl font-semibold mb-4">What We Do</h3>
                 <ul class="space-y-2">
-                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Healthcare Services</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Healthcare Services</a>
+                    </li>
                     <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Community Programs</a></li>
                     <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Disaster Relief</a></li>
                     <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Medical Education</a></li>
@@ -614,7 +601,7 @@
                     <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Advocacy</a></li>
                 </ul>
             </div>
-            
+
             <!-- Column 4: Contact -->
             <div>
                 <h3 class="text-xl font-semibold mb-4">Contact Us</h3>
@@ -629,7 +616,8 @@
                     </div>
                     <div class="flex items-center">
                         <i class="fas fa-envelope mr-3 text-primary"></i>
-                        <a href="mailto:amda@amda.org.np" class="hover:text-white transition-colors">amda@amda.org.np</a>
+                        <a href="mailto:amda@amda.org.np"
+                            class="hover:text-white transition-colors">amda@amda.org.np</a>
                     </div>
                     <div class="flex items-center">
                         <i class="fas fa-clock mr-3 text-primary"></i>
@@ -638,7 +626,7 @@
                 </address>
             </div>
         </div>
-        
+
         <div class="container mx-auto mt-12 pt-6 border-t border-gray-800">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <p class="text-gray-400 text-sm mb-4 md:mb-0">
@@ -655,4 +643,5 @@
     </footer>
     <script src="script.js"></script>
 </body>
+
 </html>
