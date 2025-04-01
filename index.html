@@ -127,24 +127,26 @@
         </div>
 
         <!-- Mobile Menu Button -->
+
+        <!-- Desktop Auth Buttons -->
+        <div class="flex justify-center items-center relative">
+            <input type="search" id="default-search"
+                class="block w-[300px] h-[50px] text-sm text-gray-200 p-3  border border-gray-300 rounded-lg bg-[#002D71]"
+                placeholder="Search.." required />
+            <button type="submit"
+                class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+        </div>
+
+        <!-- Mobile Menu Button -->
         <div class="md:hidden flex items-center space-x-4">
-            <a href="#" class="text-gray-700 hover:text-primary">Log In</a>
+
             <button id="mobile-menu-button" class="hamburger focus:outline-none">
                 <div class="hamburger-line w-6 h-0.5 bg-gray-700 my-1 transition-all"></div>
                 <div class="hamburger-line w-6 h-0.5 bg-gray-700 my-1 transition-all"></div>
                 <div class="hamburger-line w-6 h-0.5 bg-gray-700 my-1 transition-all"></div>
             </button>
         </div>
-
-        <!-- Desktop Auth Buttons -->
-        <div class="hidden md:flex items-center space-x-4">
-            <a href="#" class="text-gray-700 hover:text-primary transition-colors">Log In</a>
-            <button
-                class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">Donate
-                Now</button>
-        </div>
     </nav>
-
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="mobile-menu fixed top-16 left-0 w-full bg-white shadow-lg z-40 md:hidden">
         <div class="px-4 py-3 space-y-4">
@@ -239,7 +241,7 @@
 
         <!-- Navigation Buttons -->
         <button
-            class="nav-button prev absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/30 text-white p-3 rounded-full z-20">
+            class="nav-button bg-[#0071A5] prev absolute left-4 top-1/2 transform -translate-y-1/2  text-white p-3 rounded-full z-20">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
@@ -247,7 +249,7 @@
         </button>
 
         <button
-            class="nav-button next absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/30 text-white p-3 rounded-full z-20">
+            class="nav-button next absolute right-4 top-1/2 transform -translate-y-1/2 bg-[#0071A5] text-white p-3 rounded-full z-20">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -271,7 +273,7 @@
                 <!-- Animated paragraph -->
                 <div class="relative mt-[15vw]">
 
-                    <p class="text-xl md:text-2xl  font-semibold mb-8 max-w-2xl mx-auto opacity-0">
+                    <p class="text-xl textheading md:text-2xl  font-semibold mb-8 max-w-2xl mx-auto opacity-0">
                         Providing healthcare services to underserved communities with compassion and excellence since
                         1989.
                     </p>
@@ -466,20 +468,20 @@
             </div>
             <div class="flex items-center space-x-4">
                 <!-- Previous Button -->
-                <button class="px-3  bg-blue-600 text-white rounded-lg prev"><i
+                <button class="px-3  bg-blue-600 text-white rounded-lg prevbtn"><i
                         class="ri-arrow-left-s-line"></i></button>
 
                 <!-- Image Container -->
                 <div class="flex flex-col items-center w-full h-full object-cover">
                     <img src="https://www.amda.org.np/files/pics/3.jpg" alt="AMDA-Nepal medical camp in rural community"
-                        class="rounded-xl shadow-lg w-[500px] h-auto object-cover  Gallery" loading="lazy">
+                        class="rounded-xl shadow-lg w-[500px] h-auto object-cover  Galleryimg" loading="lazy">
                     <div class="mt-4 text-sm text-gray-900 text-center">
                         AMDA-Nepal medical team providing care at a rural health camp
                     </div>
                 </div>
 
                 <!-- Next Button -->
-                <button class="px-3  bg-blue-600 text-white rounded-lg next"><i
+                <button class="px-3  bg-blue-600 text-white rounded-lg nextbtn"><i
                         class="ri-arrow-right-s-line"></i></button>
             </div>
 
