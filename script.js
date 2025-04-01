@@ -34,7 +34,7 @@ function initializeMobileMenu() {
 // Mobile Mega Menu Toggle
 function initializeMobileMegaMenu() {
     const mobileMegaMenuButton = document.getElementById('mobile-mega-menu-button');
-    const mobileMegaMenu = document.getElementById('mobile-mega-menu');
+    const mobileMegaMenu = document.getElementById('mobile-mega-menu'); // Corrected this line
     const mobileMegaMenuIcon = mobileMegaMenuButton.querySelector('svg');
 
     mobileMegaMenuButton.addEventListener('click', () => {
@@ -42,6 +42,7 @@ function initializeMobileMegaMenu() {
         mobileMegaMenu.classList.toggle('max-h-screen');
         mobileMegaMenuIcon.classList.toggle('rotate-180');
     });
+
 }
 
 // Desktop Mega Menu Hover Effect
